@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     private Vector3 direction;
 
     public float gravity = 9.81f * 2f;
-    public float jumpForce = 8f;
+    public float jumpForce = 2f;
     private float originalRadius;
     public float smallerRadius = 0.4f;
     private bool isSmaller = false; //check if the radius is smaller or not.
@@ -63,4 +63,12 @@ public class Movement : MonoBehaviour
 
         player.Move(direction*Time.deltaTime);
     }
+     void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Obstacle")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
+
