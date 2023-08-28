@@ -17,13 +17,4 @@ public class Obstacle : MonoBehaviour
         transform.position += new Vector3(-speed * Time.deltaTime , 0 , 0);
     }
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.TryGetComponent<Player>(out var player))
-        {
-            player.TakeDamage();
-        }
-        
-        Destroy(gameObject);
-    }
 }
